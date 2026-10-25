@@ -1,0 +1,27 @@
+team_name: "Santiago Maniches"
+track: "large"
+primary_verification_submission_id: "56241648"
+selected_final_submissions:
+  - selection_slot: 1
+    submission_id: "56241648"
+    kaggle_filename: "CUHK_A_sha8e40fdfa92d8.csv"
+    submitted_at_utc: "2026-09-15T00:33:51.303Z"
+    public_score: "0.94444"
+    private_score: "0.90882"
+    csv_path: "submission/final_submission_1.csv"
+    csv_sha256: "8e40fdfa92d81f37a96ff70911fb0a2c2a05f9245cccf76bfe579672d1e8fcec"
+    model_checkpoint_config_mapping:
+      model_or_checkpoint: "Exact historical reconstruction evidence plus packaged frozen historical artifacts; execution scope documented in README.md."
+      configuration: "configs/final.yaml"
+  - selection_slot: 2
+    submission_id: "56254266"
+    kaggle_filename: "CUHK_C_independent_union.csv"
+    submitted_at_utc: "2026-09-15T12:29:51.067Z"
+    public_score: "0.94444"
+    private_score: "0.90294"
+    csv_path: "submission/final_submission_2.csv"
+    csv_sha256: "9ecbc75529bf89a293722bbc6a44288f07e38c9b446f43c5d8c40a95df7705fc"
+    model_checkpoint_config_mapping:
+      model_or_checkpoint: "Exact Selected CSV preserved for static review; execution scope documented in README.md."
+      configuration: "configs/final.yaml"
+notes: "See README.md and VERIFICATION_SCOPE.md for the precise execution scope."

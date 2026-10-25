@@ -1,0 +1,21 @@
+schema_version: 1
+track: large
+team: "Santiago Maniches"
+primary_selected_submission_id: 56241648
+secondary_selected_submission_id: 56254266
+runtime:
+  entrypoint: inference.sh
+  default_submission_id: 56241648
+  type: fresh_data_capable_reference_runtime
+  deterministic: true
+  network_required: false
+  checkpoint_root: src/fresh_runtime/checkpoints
+historical_selected_reconstruction:
+  exact_primary_reconstruction: true
+  exact_primary_sha256: "8e40fdfa92d81f37a96ff70911fb0a2c2a05f9245cccf76bfe579672d1e8fcec"
+  earliest_preserved_prediction_state: artifacts/historical_selected/incumbent_079239.csv
+  earliest_preserved_prediction_state_sha256: "eca1bdfe3e9d757d3a74d4012343a481f9696eaf2b7e71107eb665b91ec58f13"
+  raw_data_to_earliest_state_executable_present_in_recovered_materials: false
+known_limitation: >-
+  The top-level fresh-data runtime is not byte-identical to the Selected primary submission.
+  Exact historical reconstruction evidence is included separately and is not used as an answer lookup by inference.sh.

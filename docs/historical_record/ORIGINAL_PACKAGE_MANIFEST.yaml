@@ -1,0 +1,128 @@
+schema_version: 2
+
+team:
+  name: "Santiago Maniches"
+  track: "large"
+  contact_email: "santiago.maniches@gmail.com"
+
+kaggle_submission_record:
+  path: "submission/submission_info.yaml"
+  selected_submission_count: 2
+
+solution:
+  type: "hybrid"
+  entrypoint: "inference.sh"
+  primary_config: "configs/final.yaml"
+  source_root: "src"
+
+environment:
+  specification: "environment/requirements.txt"
+  dockerfile: null
+  docker_image: null
+  operating_system: "Linux x86_64"
+  python_version: "3.13.5"
+  cuda_or_accelerator_version: "not applicable"
+  system_packages: []
+
+hardware:
+  gpu_count: 0
+  minimum_gpu_memory_gb_per_gpu: 0
+  minimum_host_memory_gb: 4
+  minimum_free_disk_gb: 1
+  expected_setup_time: "approximately 2 minutes with Python 3.13 and pip available"
+  expected_inference_time: "QA-only 682-row audit: approximately 1 second on CPU; media-backed runs depend on file count and storage"
+
+network:
+  required_during_setup: true
+  required_during_inference: false
+  allowed_hosts: ["pypi.org", "files.pythonhosted.org"]
+  explanation: "Network is only needed if NumPy must be installed during environment setup. Inference itself is offline."
+
+api:
+  required: false
+  provider: null
+  model_and_version: null
+  configuration_example: null
+  credential_environment_variables: []
+  estimated_usage: null
+
+artifacts:
+  - name: "base_v1"
+    purpose: "Fresh-data runtime fitted presence/readout checkpoint"
+    path: "src/fresh_runtime/checkpoints/base_v1.npz"
+    source_url: null
+    revision_or_version: "frozen 2026-09-17 audit copy"
+    sha256: "29e2f936609a86d3240eb2db6171b989a099fac4eef7070686f86bb9a342681c"
+    required: true
+  - name: "base_v1_metadata"
+    purpose: "Fresh-data runtime checkpoint metadata"
+    path: "src/fresh_runtime/checkpoints/base_v1.json"
+    source_url: null
+    revision_or_version: "frozen 2026-09-17 audit copy"
+    sha256: "316c7deab9041fc241e80d9e8cfd36681f98371c1d25e5ead5d3013e2f08445f"
+    required: true
+  - name: "emotion_slot_table"
+    purpose: "Training-derived emotion structural checkpoint"
+    path: "src/fresh_runtime/checkpoints/emotion_slot_table.json"
+    source_url: null
+    revision_or_version: "frozen"
+    sha256: "235365e050d716e4cf9361f7732546d5dae88030f9e9c316b0501adddaf0f1e4"
+    required: true
+  - name: "emotion_duration_table"
+    purpose: "Training-derived duration/emotion checkpoint"
+    path: "src/fresh_runtime/checkpoints/emotion_duration_table.json"
+    source_url: null
+    revision_or_version: "frozen"
+    sha256: "e1841907dd585e3cc1481281826a0e06f800c61fff8d0a941d85d33275344772"
+    required: true
+  - name: "duration_cache"
+    purpose: "Frozen path-keyed duration cache; misses cleanly on unseen paths and falls back to live probing"
+    path: "src/fresh_runtime/checkpoints/durations.json"
+    source_url: null
+    revision_or_version: "frozen"
+    sha256: "de6e2d4cd56fea55ae8733357f12513995c0e66fab876533528daabc9096462c"
+    required: true
+  - name: "historical_base_prediction_state"
+    purpose: "Earliest preserved prediction state in exact historical Selected-A reconstruction; validation/provenance only; not read by inference.sh"
+    path: "artifacts/historical_selected/incumbent_079239.csv"
+    source_url: null
+    revision_or_version: "prior frozen Kaggle submission state"
+    sha256: "eca1bdfe3e9d757d3a74d4012343a481f9696eaf2b7e71107eb665b91ec58f13"
+    required: false
+  - name: "historical_sequence_posterior_W2"
+    purpose: "Historical exact-reconstruction sequence posterior bank; validation/reference only; not read by inference.sh"
+    path: "artifacts/historical_selected/post_win_W2.0_S1.0.npz"
+    source_url: null
+    revision_or_version: "historical frozen reconstruction artifact"
+    sha256: "45426bc22192a7fa4c566bcaeddcae6c8fec46119af10012dca17b46db891a36"
+    required: false
+  - name: "historical_sequence_posterior_W3"
+    purpose: "Historical exact-reconstruction sequence posterior bank; validation/reference only; not read by inference.sh"
+    path: "artifacts/historical_selected/post_win_W3.0_S1.0.npz"
+    source_url: null
+    revision_or_version: "historical frozen reconstruction artifact"
+    sha256: "aa9a3725fdadeb7a086e5306ffde2bea4eccc52cee95bab6c7f07e4dc06708b0"
+    required: false
+
+external_training_data: []
+
+reproducibility:
+  random_seeds: []
+  precision_mode: "NumPy float64 / deterministic structural rules"
+  expected_nondeterminism: "none observed in repeated fresh-runtime audit runs"
+  comparison_notes: >-
+    Exact historical Selected-A reconstruction evidence is byte-identical to the primary Selected CSV.
+    The top-level fresh-data runtime is separate and is not represented as byte-identical to that Selected primary.
+    See README.md and VERIFICATION_SCOPE.md.
+
+
+inference_input:
+  type: "official_label_free_testing_directory"
+  path_supplied_by_organizer: true
+  published_layout_preserved: true
+  participant_preprocessing_included: true
+
+declarations:
+  honor_declaration_form: "declarations/CUHK-X_Honor_Declaration.docx"
+  signed_declaration: "declarations/honor_declaration.pdf"
+  signed_declaration_sha256: "5cfe99252313866604e49227a28aa10c61b6a4499fafa09a30ce32da2706790e"

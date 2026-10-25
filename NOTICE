@@ -1,0 +1,19 @@
+Activity, Not Identity -- CUHK-X Challenge 2026
+Copyright 2026 Santiago Maniches
+
+The author's original code is distributed under Apache License 2.0.
+
+Third-party attribution and provenance:
+- CUHK-X challenge data, annotations, splits and media are owned by
+  The Chinese University of Hong Kong (AIoT Lab, Department of Information Engineering).
+  They are not licensed under this repository's Apache 2.0 license.
+- The scored historical prediction lineage starts from a public vector released
+  by team Fususu / Kaggle user phuongncn (baseline public 0.77777).
+  Source: https://www.kaggle.com/code/phuongncn/lb-0-77777-exact-submission-research-handoff
+  The original upstream sensor-generator/checkpoints were not supplied by that release.
+  The independent CPU runtime does not use the public prediction vector.
+- Dataset paper: S. Jiang et al., A Large-Scale Multimodal Dataset and Benchmarks
+  for Human Activity Scene Understanding and Reasoning, MobiSys 2026,
+  https://doi.org/10.1145/3745756.3809209
+
+No copyright in third-party research inputs is claimed. See docs/THIRD_PARTY.md.

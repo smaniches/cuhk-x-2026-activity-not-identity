@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the CUHK-X 2026 technical report and the dataset paper."
+title: "Activity, Not Identity: Session-level structural decoding for human-activity question answering"
+type: software
+authors:
+  - family-names: Maniches
+    given-names: Santiago
+    orcid: "https://orcid.org/0009-0005-6480-1987"
+repository-code: "https://github.com/smaniches/cuhk-x-2026-activity-not-identity"
+license: Apache-2.0
+keywords:
+  - human activity recognition
+  - structural decoding
+  - multimodal question answering
+  - CUHK-X
